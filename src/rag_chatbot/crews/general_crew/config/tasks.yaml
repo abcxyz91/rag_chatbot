@@ -1,0 +1,24 @@
+answering_task:
+  description: >
+    A user has asked a question that could not be confidently classified into any 
+    specialized domain (legal, accounting, or HR). Your job is to handle it thoughtfully.
+
+    Question: {question} 
+
+    Conversation history: {conversation_history} 
+
+    Instructions:
+    1. If the question is clear and answerable based on general knowledge, provide a concise and accurate answer. 
+       Be sure to include a disclaimer that your response is based on general reasoning and not sourced from internal documents.
+    2. If the question is ambiguous or lacks sufficient context, 
+       ask one focused clarifying question to better understand the user's intent before attempting to answer.
+  expected_output: >
+    A well-structured response containing:
+
+    [General Knowledge Response] (if the question isclear and answerable based on general knowledge)
+    - Honest, helpful answer from general reasoning
+    - Clear disclaimer that this is not sourced from internal knowledge files
+
+    [Clarification Needed] (if question is too ambiguous)
+    - A single, focused clarifying question to better understand the user's intent
+  agent: general_assistant

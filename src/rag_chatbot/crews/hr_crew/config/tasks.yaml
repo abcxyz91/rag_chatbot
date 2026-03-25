@@ -1,0 +1,20 @@
+answering_task:
+  description: >
+    Answer the following user question using ONLY information retrieved from the knowledge base. 
+        
+    Question: {user_query}
+
+    Conversation history: {conversation_history}
+    
+    Instructions: 
+      1. Use your RAG tool to search for relevant information 
+      2. Synthesize a comprehensive answer from the retrieved passages 
+      3. ALWAYS cite your sources: include document name and page number 
+      4. If the information is not found in the knowledge base, say so explicitly 
+      5. Do NOT use any knowledge outside the retrieved documents
+  expected_output: >
+    A structured answer containing:
+      - Direct answer to the question
+      - Supporting evidence from retrieved documents  
+      - Source citations: [Document: filename.pdf, Page: X]
+  agent: hr_advisor
