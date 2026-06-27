@@ -81,9 +81,9 @@ streamlit run src/rag_chatbot/streamlit_app.py
 Để tương tác trực tiếp với chatbot qua terminal:
 
 ```bash
-rag_chatbot-kickoff
+kickoff
 # HOẶC
-python src/rag_chatbot/main.py
+python -m rag_chatbot.main
 ```
 
 ### 3\. Chạy công cụ trích xuất OCR độc lập
@@ -208,9 +208,9 @@ streamlit run src/rag_chatbot/streamlit_app.py
 To interact with the chatbot directly via the terminal:
 
 ```bash
-rag_chatbot-kickoff
+kickoff
 # OR
-python src/rag_chatbot/main.py
+python -m rag_chatbot.main
 ```
 
 ### 3\. Running OCR Extraction standalone

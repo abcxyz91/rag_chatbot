@@ -3,7 +3,6 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 from crewai_tools import DirectoryReadTool, PDFSearchTool, DOCXSearchTool, CSVSearchTool
-from chromadb.config import Settings
 
 directory_search = DirectoryReadTool(directory='./knowledge_base/accounting')
 
@@ -15,13 +14,10 @@ accounting_db_config={
         }
     },
     'vectordb': {
-        'provider': 'chromadb',
+        'provider': 'chroma',
         'config': {
-            'settings': Settings(
-                persist_directory='./chroma_db/accounting',
-                allow_reset=True,
-                is_persistent=True
-            )
+            'dir': './chroma_db/accounting',
+            'allow_reset': True
         }
     }
 }

@@ -3,7 +3,6 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 from crewai_tools import DirectoryReadTool, PDFSearchTool, DOCXSearchTool, CSVSearchTool
-from chromadb.config import Settings
 
 directory_search = DirectoryReadTool(directory='./knowledge_base/hr')
 
@@ -15,13 +14,10 @@ hr_db_config={
         }
     },
     'vectordb': {
-        'provider': 'chromadb',
+        'provider': 'chroma',
         'config': {
-            'settings': Settings(
-                persist_directory='./chroma_db/hr',
-                allow_reset=True,  # <-- option to wipe and rebuild the vector store when your source files change
-                is_persistent=True  # <-- Persists embeddings to disk
-            )
+            'dir': './chroma_db/hr',
+            'allow_reset': True
         }
     }
 }
@@ -33,8 +29,8 @@ docx_search = DOCXSearchTool(config=hr_db_config)
 csv_search = CSVSearchTool(config=hr_db_config)
 
 @CrewBase
-class HrCrew():
-    """HrCrew crew"""
+class HRCrew():
+    """HR crew."""
 
     agents: List[BaseAgent]
     tasks: List[Task]
@@ -55,7 +51,7 @@ class HrCrew():
 
     @crew
     def crew(self) -> Crew:
-        """Creates the HrCrew crew"""
+        """Create the HR crew."""
 
         return Crew(
             agents=self.agents,
