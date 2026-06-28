@@ -3,7 +3,7 @@ answering_task:
     A user has asked a question that could not be confidently classified into any 
     specialized domain (legal, accounting, or HR). Your job is to handle it thoughtfully.
 
-    Question: {question} 
+    Question: {user_query}
 
     Conversation history: {conversation_history} 
 
