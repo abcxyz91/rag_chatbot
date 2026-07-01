@@ -34,8 +34,8 @@ class Settings(BaseSettings):
     knowledge_base_path: Path = Field(default=PACKAGE_ROOT / "knowledge_base")
     chroma_path: Path = Field(default=PROJECT_ROOT / "chroma_db")
     ollama_base_url: AnyHttpUrl = Field(default="http://localhost:11434")
-    router_model: str = Field(default="gemma3:4b", min_length=1)
-    answer_model: str = Field(default="gemma3:27b", min_length=1)
+    router_model: str = Field(default="gemma4:e2b-it-bf16", min_length=1)
+    answer_model: str = Field(default="gemma4:e4b-it-bf16", min_length=1)
     embed_model: str = Field(default="embeddinggemma:300m", min_length=1)
     default_top_k: int = Field(default=5, ge=1)
     streaming_enabled: bool = True
