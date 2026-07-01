@@ -74,6 +74,6 @@ def test_domain_crews_use_embedchain_chroma_config():
             encoding="utf-8"
         )
 
-        assert "'provider': 'chroma'" in crew_source
-        assert "'provider': 'chromadb'" not in crew_source
-        assert f"'dir': './chroma_db/{domain}'" in crew_source
+        assert f"domain_rag_config('{domain}')" in crew_source
+        assert "./knowledge_base/" not in crew_source
+        assert "./chroma_db/" not in crew_source

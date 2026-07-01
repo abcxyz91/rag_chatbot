@@ -5,6 +5,9 @@ from queue import Queue
 from threading import Thread
 from streaming_listener import StreamToQueue
 from main import RagChatbotFlow
+from rag_chatbot.settings import get_settings
+
+get_settings().validate_startup()
 
 st.title("RAG Chatbot")
 

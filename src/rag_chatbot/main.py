@@ -1,23 +1,19 @@
 #!/usr/bin/env python
-from pydantic import BaseModel, Field, ValidationError
+from pydantic import BaseModel, Field
 from typing import Literal, List, Dict
-import os, json
-from pathlib import Path
+import json
 import asyncio
 
 from crewai.flow import Flow, listen, start, router
-from crewai import LLM, Agent, Task, Crew
+from crewai import LLM
 from rag_chatbot.crews.accounting_crew.accounting_crew import AccountingCrew
 from rag_chatbot.crews.general_crew.general_crew import GeneralCrew
 from rag_chatbot.crews.hr_crew.hr_crew import HRCrew
 from rag_chatbot.crews.legal_crew.legal_crew import LegalCrew
 
-# Load environment variables
-from dotenv import load_dotenv
-load_dotenv()
-CHROMA_PATH     = Path(os.getenv('CHROMA_PATH', './chroma_db'))
-OLLAMA_BASE_URL = os.getenv('OLLAMA_BASE_URL', 'http://localhost:11434')
-EMBED_MODEL     = os.getenv('EMBED_MODEL', 'embeddinggemma:latest')
+from rag_chatbot.settings import get_settings
+
+settings = get_settings()
 
 '''
 Uncomment this if you want to persist the state of the flow (including conversation history) across sessions using CrewAI's built-in persistence
@@ -46,18 +42,18 @@ class QueryClassifier(BaseModel):
 
 # Define LLM model
 router_llm = LLM(
-    model='ollama/gemma3:4b',
-    base_url='http://localhost:11434',
+    model=settings.ollama_model(settings.router_model),
+    base_url=settings.ollama_url,
     temperature=0,  # Fully deterministic — just classification
     response_format=QueryClassifier,
     timeout=60
 )
 
 answer_llm = LLM(
-    model='ollama/gemma3:27b',
-    base_url='http://localhost:11434',
+    model=settings.ollama_model(settings.answer_model),
+    base_url=settings.ollama_url,
     temperature=0.3,  # Some creativity allowed in answers
-    stream=True,
+    stream=settings.streaming_enabled,
     timeout=300
 )
 
@@ -155,6 +151,7 @@ class RagChatbotFlow(Flow[UserMessageState]):
 
 
 def kickoff():
+    settings.validate_startup()
     rag_chatbot_flow = RagChatbotFlow()
     while True:
         user_input = input('\nEnter your question (or type "exit" to quit): ')
