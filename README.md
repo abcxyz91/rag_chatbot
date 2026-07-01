@@ -57,11 +57,14 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các công c
 3.  **Thiết lập biến môi trường:**
     Tạo file `.env` tại thư mục gốc (nếu bạn muốn ghi đè các giá trị mặc định):
 
-    ```env
-    CHROMA_PATH=./chroma_db
-    OLLAMA_BASE_URL=http://localhost:11434
-    EMBED_MODEL=embeddinggemma:300m
+    ```bash
+    copy .env.example .env
     ```
+
+    `KNOWLEDGE_BASE_PATH` and `CHROMA_PATH` accept absolute paths or paths relative to
+    the project root. You can also configure `OLLAMA_BASE_URL`, `ROUTER_MODEL`,
+    `ANSWER_MODEL`, `EMBED_MODEL`, `DEFAULT_TOP_K`, and `STREAMING_ENABLED` without
+    editing Python source.
 
 4.  **Nạp Dữ liệu vào Cơ sở Tri thức (Knowledge Base):**
     Đặt các tài liệu theo lĩnh vực của bạn (`.pdf`, `.docx`, `.csv`) vào các thư mục tương ứng trong `src/rag_chatbot/knowledge_base/`.
@@ -184,11 +187,14 @@ Before you begin, ensure you have the following installed:
 3.  **Set up environment variables:**
     Create a `.env` file in the root directory (if you wish to override defaults):
 
-    ```env
-    CHROMA_PATH=./chroma_db
-    OLLAMA_BASE_URL=http://localhost:11434
-    EMBED_MODEL=embeddinggemma:300m
+    ```bash
+    copy .env.example .env
     ```
+
+    `KNOWLEDGE_BASE_PATH` and `CHROMA_PATH` accept absolute paths or paths relative to
+    the project root. `OLLAMA_BASE_URL`, `ROUTER_MODEL`, `ANSWER_MODEL`, `EMBED_MODEL`,
+    `DEFAULT_TOP_K`, and `STREAMING_ENABLED` are also configurable without editing
+    Python source.
 
 4.  **Populate Knowledge Base:**
     Place your domain-specific documents (`.pdf`, `.docx`, `.csv`) into their respective folders under `src/rag_chatbot/knowledge_base/`.

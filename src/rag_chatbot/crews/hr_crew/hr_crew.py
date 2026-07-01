@@ -1,26 +1,14 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, LLM, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 from crewai_tools import DirectoryReadTool, PDFSearchTool, DOCXSearchTool, CSVSearchTool
+from rag_chatbot.settings import domain_rag_config, get_settings
 
-directory_search = DirectoryReadTool(directory='./knowledge_base/hr')
+settings = get_settings()
+directory_search = DirectoryReadTool(directory=str(settings.domain_knowledge_path('hr')))
 
-hr_db_config={
-    'embedding_model': {
-        'provider': 'ollama',
-        'config': {
-            'model': 'embeddinggemma:300m'
-        }
-    },
-    'vectordb': {
-        'provider': 'chroma',
-        'config': {
-            'dir': './chroma_db/hr',
-            'allow_reset': True
-        }
-    }
-}
+hr_db_config = domain_rag_config('hr')
 
 pdf_search = PDFSearchTool(config=hr_db_config)
 
@@ -39,6 +27,11 @@ class HRCrew():
     def hr_advisor(self) -> Agent:
         return Agent(
             config=self.agents_config['hr_advisor'],
+            llm=LLM(
+                model=settings.ollama_model(settings.answer_model),
+                base_url=settings.ollama_url,
+                stream=settings.streaming_enabled,
+            ),
             verbose=True,
             tools=[directory_search, pdf_search, docx_search, csv_search]
         )
