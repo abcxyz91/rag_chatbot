@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from pydantic import BaseModel, Field
-from typing import Literal, List, Dict
+from pydantic import BaseModel
+from typing import List, Dict
 import json
 import asyncio
 
@@ -12,6 +12,7 @@ from rag_chatbot.crews.hr_crew.hr_crew import HRCrew
 from rag_chatbot.crews.legal_crew.legal_crew import LegalCrew
 
 from rag_chatbot.settings import get_settings
+from rag_chatbot.routing import QueryClassifier, ROUTER_SYSTEM_PROMPT
 
 settings = get_settings()
 
@@ -35,11 +36,6 @@ class UserMessageState(BaseModel):
 Define query classifier model - Used for classifying user queries into types for routing to appropriate crew
 Field is used to provide extra metadata (like description) and to declare that query_type is a required field
 '''
-class QueryClassifier(BaseModel):
-    query_type: Literal['accounting', 'general', 'hr', 'legal'] = Field(
-        ..., description='Classify if the message requires an accounting, general, hr, or legal crew'
-    )
-
 # Define LLM model
 router_llm = LLM(
     model=settings.ollama_model(settings.router_model),
@@ -74,14 +70,7 @@ class RagChatbotFlow(Flow[UserMessageState]):
             result = await router_llm.acall([
                 {
                     'role': 'system',
-                    'content': '''You are a helpful assistant that classifies user queries into one of the following domains: 
-                    accounting, general, hr, legal.
-                    - "legal"      : questions about laws, regulations, contracts, court cases, compliance
-                    - "accounting" : questions about finance, tax, IFRS, budgets, invoices, chart of accounts
-                    - "hr"         : questions about employees, policies, onboarding, leave, benefits, conduct
-                    - "general"    : questions about anything that doesn't clearly fit the above categories
-                    Classify the user's question into exactly ONE domain: legal, accounting, hr or general. 
-                    Output format must be a JSON object with a single key "query_type" and the value must be one of the four domains.'''
+                    'content': ROUTER_SYSTEM_PROMPT
                 },
                 {
                     'role': 'user',

@@ -1,0 +1,68 @@
+{"id":"accounting-01","question":"What does depreciation mean in accounting?","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-02","question":"How is an asset's cost spread over its useful life?","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-03","question":"Explain accrual accounting in one sentence.","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-04","question":"When should revenue and expenses be matched under accrual accounting?","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-05","question":"What information does a balance sheet display?","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-06","question":"Does a balance sheet describe a period or a specific point in time?","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-07","question":"Which accounting concept allocates an asset cost across its life?","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-08","question":"Which statement shows a company's financial position on a date?","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-09","question":"How does the knowledge base define matching revenue with incurred expenses?","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-10","question":"Summarize the accounting topics covered by the internal guide.","expected_domain":"accounting","expected_sources":["accounting_knowledge.docx"]}
+{"id":"accounting-11","question":"What was the amount of the initial cash deposit?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-12","question":"On what date was the initial cash deposit recorded?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-13","question":"Which account was used for the January 5 cash deposit?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-14","question":"What transaction was recorded for Accounts Receivable?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-15","question":"When was the customer invoice issued?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-16","question":"How much credit was recorded for the customer invoice?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-17","question":"What service revenue amount was recorded?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-18","question":"Which account contains the 700 credit transaction?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-19","question":"List the dates represented in the accounting transaction sample.","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"accounting-20","question":"Which transaction description corresponds to a debit of 500?","expected_domain":"accounting","expected_sources":["accounting_transactions.csv"]}
+{"id":"hr-01","question":"What kinds of leave are covered by company policy?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-02","question":"Does the HR policy include annual leave?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-03","question":"Where can employees find the sick leave rules?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-04","question":"Is special leave mentioned in the internal policies?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-05","question":"What does the recruitment policy say about candidate evaluation?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-06","question":"Are standard hiring procedures documented?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-07","question":"Summarize the recruitment topics in the HR policy overview.","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-08","question":"Which policy document covers leave regulations?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-09","question":"What employee absence categories are listed in HR guidance?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-10","question":"How should candidates be assessed according to HR policy?","expected_domain":"hr","expected_sources":["hr_policies.docx"]}
+{"id":"hr-11","question":"What is included in onboarding training?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-12","question":"Does onboarding introduce company culture?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-13","question":"Where are company procedures introduced to new employees?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-14","question":"What guidance is available for professional development?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-15","question":"Does the training material discuss career paths?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-16","question":"How can employees learn about skill improvement?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-17","question":"Summarize the two areas in the HR training materials.","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-18","question":"Which training helps a new hire understand the company?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-19","question":"What internal document discusses employee career growth?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"hr-20","question":"Are both culture and procedures part of new-hire training?","expected_domain":"hr","expected_sources":["hr_training.docx"]}
+{"id":"legal-01","question":"What legal requirements apply to handling personal information?","expected_domain":"legal","expected_sources":["legal_compliance.docx"]}
+{"id":"legal-02","question":"Which compliance topic covers personal data?","expected_domain":"legal","expected_sources":["legal_compliance.docx"]}
+{"id":"legal-03","question":"What workplace safety responsibilities do employers have?","expected_domain":"legal","expected_sources":["legal_compliance.docx"]}
+{"id":"legal-04","question":"Does the compliance guide require safe work conditions?","expected_domain":"legal","expected_sources":["legal_compliance.docx"]}
+{"id":"legal-05","question":"Summarize the data protection section of the legal guide.","expected_domain":"legal","expected_sources":["legal_compliance.docx"]}
+{"id":"legal-06","question":"Where are employer safety duties documented?","expected_domain":"legal","expected_sources":["legal_compliance.docx"]}
+{"id":"legal-07","question":"What two subjects are in the legal compliance document?","expected_domain":"legal","expected_sources":["legal_compliance.docx"]}
+{"id":"legal-08","question":"What subjects should an employment contract cover?","expected_domain":"legal","expected_sources":["legal_contracts.docx"]}
+{"id":"legal-09","question":"Are employee rights and obligations included in employment contracts?","expected_domain":"legal","expected_sources":["legal_contracts.docx"]}
+{"id":"legal-10","question":"What do vendor agreements establish for business partnerships?","expected_domain":"legal","expected_sources":["legal_contracts.docx"]}
+{"id":"legal-11","question":"Where are service expectations for vendors described?","expected_domain":"legal","expected_sources":["legal_contracts.docx"]}
+{"id":"legal-12","question":"Summarize the contract types in the legal contracts guide.","expected_domain":"legal","expected_sources":["legal_contracts.docx"]}
+{"id":"legal-13","question":"Which agreement provides a framework for a vendor relationship?","expected_domain":"legal","expected_sources":["legal_contracts.docx"]}
+{"id":"legal-14","question":"Does the contract guide discuss terms and conditions for employees?","expected_domain":"legal","expected_sources":["legal_contracts.docx"]}
+{"id":"legal-15","question":"Which government regulations affecting businesses are summarized?","expected_domain":"legal","expected_sources":["legal_government_policy.pdf"]}
+{"id":"legal-16","question":"What does the government policy say about corporate tax compliance?","expected_domain":"legal","expected_sources":["legal_government_policy.pdf"]}
+{"id":"legal-17","question":"Which labor-law topics are included in the policy overview?","expected_domain":"legal","expected_sources":["legal_government_policy.pdf"]}
+{"id":"legal-18","question":"Where can I find requirements about worker rights?","expected_domain":"legal","expected_sources":["legal_government_policy.pdf"]}
+{"id":"legal-19","question":"Does government policy address employment and workplace safety?","expected_domain":"legal","expected_sources":["legal_government_policy.pdf"]}
+{"id":"legal-20","question":"Summarize the regulatory, tax, and labor sections of the government policy.","expected_domain":"legal","expected_sources":["legal_government_policy.pdf"]}
+{"id":"general-01","question":"What is the capital of Japan?","expected_domain":"general","expected_sources":[]}
+{"id":"general-02","question":"Write a short poem about rain.","expected_domain":"general","expected_sources":[]}
+{"id":"general-03","question":"How do I boil an egg?","expected_domain":"general","expected_sources":[]}
+{"id":"general-04","question":"Explain why the sky appears blue.","expected_domain":"general","expected_sources":[]}
+{"id":"general-05","question":"Suggest a name for a pet turtle.","expected_domain":"general","expected_sources":[]}
+{"id":"general-06","question":"What is two plus two?","expected_domain":"general","expected_sources":[]}
+{"id":"general-07","question":"Translate hello into Spanish.","expected_domain":"general","expected_sources":[]}
+{"id":"general-08","question":"Who painted the Mona Lisa?","expected_domain":"general","expected_sources":[]}
