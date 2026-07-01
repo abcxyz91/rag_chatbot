@@ -66,7 +66,7 @@ def test_runtime_dependency_and_documented_cli_are_aligned():
     assert "rag_chatbot-kickoff" not in readme
 
 
-def test_domain_crews_use_embedchain_chroma_config():
+def test_domain_crews_use_preindexed_domain_search():
     crews_root = REPO_ROOT / "src" / "rag_chatbot" / "crews"
 
     for domain in ("accounting", "hr", "legal"):
@@ -74,6 +74,6 @@ def test_domain_crews_use_embedchain_chroma_config():
             encoding="utf-8"
         )
 
-        assert f"domain_rag_config('{domain}')" in crew_source
+        assert f'DomainSearchTool(domain="{domain}")' in crew_source
         assert "./knowledge_base/" not in crew_source
         assert "./chroma_db/" not in crew_source

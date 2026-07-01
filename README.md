@@ -67,7 +67,13 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các công c
     editing Python source.
 
 4.  **Nạp Dữ liệu vào Cơ sở Tri thức (Knowledge Base):**
-    Đặt các tài liệu theo lĩnh vực của bạn (`.pdf`, `.docx`, `.csv`) vào các thư mục tương ứng trong `src/rag_chatbot/knowledge_base/`.
+    Đặt các tài liệu theo lĩnh vực của bạn (`.pdf`, `.docx`, `.csv`, `.md`, `.txt`) vào các thư mục tương ứng trong `src/rag_chatbot/knowledge_base/`, sau đó xây dựng lại chỉ mục:
+
+    ```bash
+    rag-chatbot ingest
+    ```
+
+    Lệnh này tạo một ChromaDB collection cho mỗi lĩnh vực và ghi manifest chứa hash, metadata nguồn và số chunk vào `CHROMA_PATH/manifest.json`.
 
 ## 🚀 Hướng dẫn Sử dụng
 
@@ -197,7 +203,13 @@ Before you begin, ensure you have the following installed:
     Python source.
 
 4.  **Populate Knowledge Base:**
-    Place your domain-specific documents (`.pdf`, `.docx`, `.csv`) into their respective folders under `src/rag_chatbot/knowledge_base/`.
+    Place domain documents (`.pdf`, `.docx`, `.csv`, `.md`, or `.txt`, including OCR text output) in their folders under `src/rag_chatbot/knowledge_base/`, then rebuild the indexes:
+
+    ```bash
+    rag-chatbot ingest
+    ```
+
+    This creates one ChromaDB collection per domain and writes file hashes, source metadata, timestamps, and chunk counts to `CHROMA_PATH/manifest.json`. Use `--domain accounting`, `--domain hr`, or `--domain legal` to rebuild selected domains.
 
 ## 🚀 Usage
 

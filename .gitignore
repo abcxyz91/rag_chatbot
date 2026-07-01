@@ -4,3 +4,4 @@ lib/
 .DS_Store
 backup/
 TODO.md
+chroma_db/
