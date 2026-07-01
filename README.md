@@ -79,6 +79,12 @@ Trước khi bắt đầu, hãy đảm bảo bạn đã cài đặt các công c
 streamlit run src/rag_chatbot/streamlit_app.py
 ```
 
+Giao diện web lưu 10 lượt trao đổi gần nhất trong phiên trình duyệt hiện tại,
+gửi chúng làm ngữ cảnh cho lượt hỏi tiếp theo, và có nút **Clear conversation**
+trong sidebar. Khi `STREAMING_ENABLED=true`, token trả lời được hiển thị ngay khi
+được sinh ra; lỗi backend được báo rõ thay vì để giao diện kẹt ở trạng thái
+đang tải.
+
 ### 2\. Giao diện Dòng lệnh (CLI)
 
 Để tương tác trực tiếp với chatbot qua terminal:
@@ -208,6 +214,11 @@ For the best interactive experience with real-time streaming, run the Streamlit 
 ```bash
 streamlit run src/rag_chatbot/streamlit_app.py
 ```
+
+The web UI preserves the latest 10 exchanges in the current browser session and
+sends them as context with the next question. Use **Clear conversation** in the
+sidebar to start over. With `STREAMING_ENABLED=true`, answer tokens are rendered
+as they arrive; backend failures are reported without leaving the UI stuck.
 
 ### 2\. Command Line Interface
 
