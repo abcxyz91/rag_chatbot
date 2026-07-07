@@ -103,6 +103,21 @@ python -m rag_chatbot.main
 python src/rag_chatbot/ocr_tool.py
 ```
 
+### 4\. Đánh giá chất lượng
+
+Bộ dữ liệu mặc định gồm 68 câu hỏi vàng: 20 câu cho mỗi miền Accounting,
+HR và Legal, cùng 8 câu General. Khi Ollama đang chạy, tạo báo cáo baseline
+read-only trên knowledge base hiện tại:
+
+```bash
+rag-chatbot-evaluate --output evaluation-report.json
+```
+
+Báo cáo JSON bao gồm routing accuracy, confusion matrix, retrieval hit rate@k,
+mean reciprocal rank, và tỷ lệ citation có metadata nguồn hợp lệ. Có thể dùng
+`--dataset`, `--top-k`, `--skip-routing`, `--skip-retrieval`, và các tùy chọn
+`--min-*-rate` để chạy bộ dữ liệu riêng hoặc đặt quality gate.
+
 ## 📂 Cấu trúc Dự án
 
 ```text
@@ -237,6 +252,22 @@ To extract text from images (like receipts) before indexing:
 ```bash
 python src/rag_chatbot/ocr_tool.py
 ```
+
+### 4\. Evaluating quality
+
+The bundled golden set contains 68 questions: 20 for each of Accounting, HR,
+and Legal, plus 8 General routing cases. With Ollama running, capture a
+read-only baseline over the configured knowledge base:
+
+```bash
+rag-chatbot-evaluate --output evaluation-report.json
+```
+
+The JSON report includes routing accuracy and a confusion matrix, retrieval
+hit rate@k and mean reciprocal rank, plus file-type-aware citation metadata
+checks. Use `--dataset` and `--top-k` for custom runs, skip one component with
+`--skip-routing` or `--skip-retrieval`, or set the `--min-*-rate` options as
+quality gates.
 
 ## 📂 Project Structure
 
