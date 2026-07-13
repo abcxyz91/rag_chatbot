@@ -2,19 +2,11 @@ from crewai import Agent, Crew, LLM, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
-from crewai_tools import DirectoryReadTool, PDFSearchTool, DOCXSearchTool, CSVSearchTool
-from rag_chatbot.settings import domain_rag_config, get_settings
+from rag_chatbot.retrieval import DomainSearchTool
+from rag_chatbot.settings import get_settings
 
 settings = get_settings()
-directory_search = DirectoryReadTool(directory=str(settings.domain_knowledge_path('hr')))
-
-hr_db_config = domain_rag_config('hr')
-
-pdf_search = PDFSearchTool(config=hr_db_config)
-
-docx_search = DOCXSearchTool(config=hr_db_config)
-
-csv_search = CSVSearchTool(config=hr_db_config)
+knowledge_search = DomainSearchTool(domain="hr")
 
 @CrewBase
 class HRCrew():
@@ -33,7 +25,7 @@ class HRCrew():
                 stream=settings.streaming_enabled,
             ),
             verbose=True,
-            tools=[directory_search, pdf_search, docx_search, csv_search]
+            tools=[knowledge_search]
         )
 
     @task
